@@ -1,0 +1,16 @@
+development: &defaults
+  adapter: mysql2
+  encoding: utf8
+  database: mit_development
+  username: root
+  password:
+  pool: 10
+  reconnect: true
+
+test:
+  <<: *defaults
+  database: mit_test
+
+production:
+  <<: *defaults
+  database: mit_production
