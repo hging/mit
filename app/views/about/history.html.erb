@@ -1,0 +1,42 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag    'about', media: 'all' %>
+<% end %>
+<% content_for :js do %>
+  <%= javascript_include_tag 'about' %>
+<% end %>
+<!-- 记得这里是span不能换行 -->
+<div class="breadcrumb container">
+  <span><%= link_to 'Home', root_url %></span><span><%= link_to 'About LIDS', about_index_url %></span><span>History</span>
+</div>
+
+<!-- title -->
+<h1 class="container">History</h1>
+
+<!-- content -->
+<div class="container with-catalog">
+  <article>
+    <p>This timeline serves as a snapshot of the contributions and breakthroughs of LIDS researchers over the past eight decades.</p>
+    <div class="timeline">
+      <div class="time">1940s</div>
+      <div class="desc">
+        <p>
+          <b>Servomechanism Lab established at MIT in 1940</b><br>Gordon Brown, Founding Director (1940-1952)
+        </p>
+        <p>
+          <b>WWII military applications</b><br>Lab plays leadership role in fire control system development. Lab researchers design control and power systems for the U.S. Army’s 37mm gun mount and 40mm gun.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <div class="catalog">
+    <img src="http://project.isekai.me/ping/s1.jpeg" alt="">
+    <div class="title">
+      Further Reading
+    </div>
+    <p>Download Alan Willsky's LIDS – A Brief History for a more in depth look at the history of the laboratory.
+    </p>
+    <p>For a more extensive discussion of the early development of LIDS, download From Servo Loops to Fiber Nets.
+    </p>
+  </div>
+</div>

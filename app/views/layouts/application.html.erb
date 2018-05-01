@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Mit</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+  <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <%= yield :css %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <!-- header -->
+  <%= render  template: 'layouts/_header' %>
+
+  <!-- title -->
+  <%= yield %>
+
+  <!-- footer -->
+  <%= render  template: 'layouts/_bottom' %>
+
+  <%= yield :js %>
 </html>

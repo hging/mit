@@ -1,0 +1,53 @@
+<% content_for :css do %>
+<%= stylesheet_link_tag    'calendar', media: 'all' %>
+<% end %>
+<% content_for :js do %>
+<%= javascript_include_tag 'calendar' %>
+<script>
+    var todayDate = moment().startOf('day');
+
+  var TODAY = todayDate.format('YYYY-MM-DD');
+  var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,today,next, month,listWeek',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay,listWeek'
+
+    },
+    eventSources: {
+
+    events: [ // put the array in the `events` property
+    {
+      title  : 'event1',
+      start  : TODAY
+    },
+    {
+      title  : 'event2',
+      start  : '2018-05-01',
+      end    : TOMORROW
+    },
+    {
+      title  : 'event3',
+      start  : '2010-01-09 12:30:00',
+    }
+    ],
+      color: '#a40008',
+      textColor: '#FFF',
+    }
+
+  });
+</script>
+<% end %>
+<!-- 记得这里是span不能换行 -->
+<div class="breadcrumb container">
+  <span><%= link_to 'Home', root_url %></span><span>Calendar</span>
+</div>
+
+
+<!-- title -->
+<h1 class="container">Event Calendar</h1>
+
+<div class="container">
+  <div id="calendar"></div>
+</div>

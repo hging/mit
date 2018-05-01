@@ -1,0 +1,35 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag    'activities', media: 'all' %>
+<% end %>
+<% content_for :js do %>
+  <%= javascript_include_tag 'activities' %>
+<% end %>
+<!-- 记得这里是span不能换行 -->
+<div class="breadcrumb container">
+  <span><%= link_to 'Home', root_url %></span><span>About LIDS</span>
+</div>
+
+<!-- title -->
+<h1 class="container">History</h1>
+
+<!-- content -->
+<div class="container with-catalog">
+  <article>
+    <p>The Laboratory for Information and Decision Systems (LIDS) at MIT is an interdepartmental research center committed to advancing research and education in the analytical information and decision sciences, specifically:</p><br>
+
+    <p>· <%= link_to 'Systems and control', '#' %></p>
+    <p>· <%= link_to 'Communications and networks', '#' %></p>
+    <p>· <%= link_to 'nference and statistical data processing', '#' %></p><br>
+
+    <p>Throughout its history, LIDS has been at the forefront of major methodological developments in a wide range of fields, including: telecommunications, information technology, the automotive industry, energy, defense, and human health. Building on past innovation and bolstered by a collaborative atmosphere, LIDS members continue to make breakthroughs that cut across traditional boundaries.</p><br>
+
+    <p>LIDS Culture</p>
+    <p>LIDS is an exciting, energizing, and enriching place to work. Our distinguished faculty members instill in their students the disciplinary depth and the interdisciplinary understanding required of tomorrow’s research and engineering leaders.</p><br>
+
+    <p>Members of the LIDS community share a common approach to solving problems and recognize the fundamental role that mathematics, physics, and computation play in their research. Their pursuits are strengthened by the laboratory’s affiliations with colleagues across MIT and throughout the world, as well as with leading industrial and government organizations.</p>
+  </article>
+
+  <div class="catalog" style="height: 100%;">
+    <span><%= link_to 'History', history_about_index_url, :style => 'color: #a40008' %></span>
+  </div>
+</div>

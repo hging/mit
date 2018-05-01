@@ -17,11 +17,28 @@ RailsAdmin.config do |config|
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
+  config.authenticate_with do
+    authenticate_or_request_with_http_basic('Login required') do |email, password|
+      user = Staff.where(email: email).first
+      user.authenticate(password) if user
+    end
+  end
+
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
+  config.model Activity do
+    edit do
+      # For RailsAdmin >= 0.5.0
+      field :content, :ck_editor
+      # For RailsAdmin < 0.5.0
+      # field :description do
+      #   ckeditor true
+      # end
+    end
+  end
 
   config.actions do
     dashboard                     # mandatory
