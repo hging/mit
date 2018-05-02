@@ -4,10 +4,6 @@
 <% content_for :js do %>
 <%= javascript_include_tag 'calendar' %>
 <script>
-    var todayDate = moment().startOf('day');
-
-  var TODAY = todayDate.format('YYYY-MM-DD');
-  var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
   $('#calendar').fullCalendar({
     header: {
       left: 'prev,today,next, month,listWeek',
@@ -17,25 +13,9 @@
     },
     eventSources: {
 
-    events: [ // put the array in the `events` property
-    {
-      title  : 'event1',
-      start  : TODAY
-    },
-    {
-      title  : 'event2',
-      start  : '2018-05-01',
-      end    : TOMORROW
-    },
-    {
-      title  : 'event3',
-      start  : '2010-01-09 12:30:00',
+    events: <%= @news.html_safe %>,
+    color: "#A40008"
     }
-    ],
-      color: '#a40008',
-      textColor: '#FFF',
-    }
-
   });
 </script>
 <% end %>

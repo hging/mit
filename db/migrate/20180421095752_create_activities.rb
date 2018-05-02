@@ -5,8 +5,8 @@ class CreateActivities < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :author
       t.boolean :published
-      t.integer :start
-      t.integer :end
+      t.timestamp :start
+      t.timestamp :end
       t.integer :activity_type, :default => 0
       t.string :news_type
 

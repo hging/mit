@@ -36,8 +36,8 @@ RailsAdmin.config do |config|
       field :author
       field :content, :ck_editor
       field :published
-      field :start
-      field :end
+      field :start, :timestamp
+      field :end, :timestamp
       field :activity_type
       field :news_type
 

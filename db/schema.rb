@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20180502171947) do
     t.string "title"
     t.string "author"
     t.boolean "published"
-    t.integer "start"
-    t.integer "end"
+    t.timestamp "start"
+    t.timestamp "end"
     t.integer "activity_type", default: 0
     t.string "news_type"
     t.datetime "created_at", null: false
