@@ -50,6 +50,8 @@ gem 'mini_magick'
 gem 'normalize-rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'kaminari'
+
 
 
 group :development, :test do

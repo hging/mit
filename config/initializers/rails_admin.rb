@@ -32,12 +32,27 @@ RailsAdmin.config do |config|
   config.model Activity do
     edit do
       # For RailsAdmin >= 0.5.0
+      field :title
+      field :author
       field :content, :ck_editor
+      field :published
+      field :start
+      field :end
+      field :activity_type
+      field :news_type
+
       # For RailsAdmin < 0.5.0
       # field :description do
       #   ckeditor true
       # end
     end
+  end
+
+  config.model Person do
+    field :name
+    field :avatar
+    field :email
+    field :title
   end
 
   config.actions do

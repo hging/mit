@@ -7,65 +7,36 @@
 <!-- breadcrumb -->
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
-  <span><a href="./xxx.html">Home</a></span><span>People</span>
+  <% if params[:q] %>
+    <span><%= link_to 'Home', root_url %></span><span><%= link_to 'People', people_url %></span><span><%= params[:q] %></span>
+  <% else %>
+    <span><%= link_to 'Home', root_url %></span><span>People</span>
+  <% end %>
 </div>
 
 <!-- title -->
 <h1 class="container">People</h1>
 
 <div class="catalog container">
-  <a class="active">A</a><a>B</a><a>C</a><a>D</a>
+  <% @all_first_words.each do |word| %>
+    <%= link_to word.upcase, people_url({:q => word}), :class => "#{params[:q] == word ? 'active' : ''}" %>
+  <% end %>
+  <!-- <a class="active">A</a><a>B</a><a>C</a><a>D</a> -->
 </div>
 <!-- 一排6个 -->
-<div class="people container">
+<% @people.each_with_index do |person, index| %>
+  <% if index % 6 == 0 %>
+  <div class="people container">
+  <% end %>
   <div class="person">
-    <div class="thumbnail"><img src="http://project.isekai.me/ping/s1.jpeg" alt=""></div>
-    <div class="name">Abhishek Agarwal</div>
-    <div class="position">Graduate Student</div>
-    <div class="email">abhia@mit.edu</div>
+    <div class="thumbnail"><img src="<%= person.avatar.url %>" alt=""></div>
+    <div class="name"><%= person.name %></div>
+    <div class="position"><%= person.title %></div>
+    <div class="email"><%= person.email %></div>
   </div>
-  <div class="person">
-    <div class="thumbnail"><img src="http://project.isekai.me/ping/s1.jpeg" alt=""></div>
-    <div class="name">Abhishek Agarwal</div>
-    <div class="position">Graduate Student</div>
-    <div class="email">abhia@mit.edu</div>
-  </div>
-  <div class="person">
-    <div class="thumbnail"><img src="http://project.isekai.me/ping/s1.jpeg" alt=""></div>
-    <div class="name">Abhishek Agarwal</div>
-    <div class="position">Graduate Student</div>
-    <div class="email">abhia@mit.edu</div>
-  </div>
-  <div class="person">
-    <div class="thumbnail"><img src="http://project.isekai.me/ping/s1.jpeg" alt=""></div>
-    <div class="name">Abhishek Agarwal</div>
-    <div class="position">Graduate Student</div>
-    <div class="email">abhia@mit.edu</div>
-  </div>
-  <div class="person">
-    <div class="thumbnail"><img src="http://project.isekai.me/ping/s1.jpeg" alt=""></div>
-    <div class="name">Abhishek Agarwal</div>
-    <div class="position">Graduate Student</div>
-    <div class="email">abhia@mit.edu</div>
-  </div>
-  <div class="person">
-    <div class="thumbnail"><img src="http://project.isekai.me/ping/s1.jpeg" alt=""></div>
-    <div class="name">Abhishek Agarwal</div>
-    <div class="position">Graduate Student</div>
-    <div class="email">abhia@mit.edu</div>
-  </div>
-</div>
-<div class="people container">
-  <div class="person">
-    <div class="thumbnail"><img src="http://project.isekai.me/ping/s1.jpeg" alt=""></div>
-    <div class="name">Abhishek Agarwal</div>
-    <div class="position">Graduate Student</div>
-    <div class="email">abhia@mit.edu</div>
-  </div>
-  <div class="person">
-    <div class="thumbnail"><img src="http://project.isekai.me/ping/s1.jpeg" alt=""></div>
-    <div class="name">Abhishek Agarwal</div>
-    <div class="position">Graduate Student</div>
-    <div class="email">abhia@mit.edu</div>
-  </div>
-</div>
+
+  <% if (index % 6 == 5) || (@people.count == index + 1) %>
+    </div>
+  <% end %>
+
+<% end %>

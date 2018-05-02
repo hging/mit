@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180421195614) do
+ActiveRecord::Schema.define(version: 20180502171947) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 20180421195614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "avatar"
+    t.string "name"
+    t.string "title"
+    t.string "email"
+    t.string "data_content_type"
+    t.string "data_file_size"
+    t.string "first_word"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["first_word"], name: "index_people_on_first_word"
   end
 
   create_table "staffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

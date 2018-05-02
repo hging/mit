@@ -9,7 +9,7 @@
 #  published     :boolean
 #  start         :integer
 #  end           :integer
-#  activity_type :integer          default(0)
+#  activity_type :integer          default("activity")
 #  news_type     :string(255)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
