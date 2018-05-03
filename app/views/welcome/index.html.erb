@@ -16,39 +16,21 @@
 <div class="block container p1">
   <div class="title">
     <div class="text">Upcoming LIDS Events</div>
-    <div class="link"><a href="./xxx.html">See all Events</a></div>
+    <div class="link"><%= link_to 'See all Events', activities_url %></div>
   </div>
   <div class="content">
+  <% Activity.news.order(:start).limit(3).each do |activity| %>
     <div class="d">
-      <div class="t">MARCH</div>
-      <div class="c"><b>7</b>th</div>
+      <div class="t"><%= activity.start&.strftime("%^B") %></div>
+      <div class="c"><b><%= activity.start&.strftime("%d") %></b><%= activity.start&.day&.ordinalize %></div>
       <div class="p">
-        <div>LIDS & Stats Tea</div>
-        <div><b>Private Sequential Learning</b></div>
-        <div>LIDS Lounge</div>
-        <div>4:30pm</div>
+        <!-- <div>LIDS & Stats Tea</div> -->
+        <div><b><%= link_to activity.title, activity_url(activity) %></b></div>
+        <div><%= (truncate(strip_tags(activity.content), :length => 60, :omission => '...')).html_safe %></div>
+        <!-- <div>4:30pm</div> -->
       </div>
     </div>
-    <div class="d">
-      <div class="t">MARCH</div>
-      <div class="c"><b>7</b>th</div>
-      <div class="p">
-        <div>LIDS & Stats Tea</div>
-        <div><b>Private Sequential Learning</b></div>
-        <div>LIDS Lounge</div>
-        <div>4:30pm</div>
-      </div>
-    </div>
-    <div class="d">
-      <div class="t">MARCH</div>
-      <div class="c"><b>7</b>th</div>
-      <div class="p">
-        <div>LIDS & Stats Tea</div>
-        <div><b>Private Sequential Learning</b></div>
-        <div>LIDS Lounge</div>
-        <div>4:30pm</div>
-      </div>
-    </div>
+  <% end %>
   </div>
 </div>
 
@@ -56,53 +38,40 @@
   <div class="block p3">
     <div class="title">
       <div class="text">LIDS Research Highlights</div>
-      <div class="link"><a href="./xxx.html">See all LIDS Highlights</a></div>
+      <div class="link"><%= link_to 'See all LIDS Highlights', research_index_url %><a href="./xxx.html"></a></div>
     </div>
     <div class="content">
+    <% Activity.activity.order(:start).limit(6).each do |activity| %>
       <div class="a">
         <div class="i">
-          <img src="http://project.isekai.me/ping/s1.jpeg" alt="">
+          <img src="<%= activity.logo_urls[0] || '' %>" alt="">
         </div>
         <div class="t">
-          <div class="tt">Camera Control for Learning Nonlinear Target Dynamics via Bayesian Non-Parametric Dirichlet-Process Gaussian-Process (DPGP) Models</div>
-          <div class="ttt">Mobile sensors are often deployed to cooperatively perform surveillance of an environment and track objects of interest: for example, intrusion detection throughout a secure facility, and anomaly detection in manufacturing plants. In many such cases it is infeasible to provide accurate sensor coverage of the entire environment, and thus an environment model and associated controller that accounts for sensor field-of-view (FoV) geometry is necessary to determine sensor configurations that minimize uncertainty.</div>
+          <div class="tt"><%= link_to activity.title, activity_url(activity) %></div>
+          <div class="ttt"><%= (truncate(strip_tags(article.content), :length => 300, :omission => '...')).html_safe %></div>
         </div>
       </div>
-      <div class="a">
-        <div class="i">
-          <img src="http://project.isekai.me/ping/s1.jpeg" alt="">
-        </div>
-        <div class="t">
-          <div class="tt">Camera Control for Learning Nonlinear Target Dynamics via Bayesian Non-Parametric Dirichlet-Process Gaussian-Process (DPGP) Models</div>
-          <div class="ttt">Mobile sensors are often deployed to cooperatively perform surveillance of an environment and track objects of interest: for example, intrusion detection throughout a secure facility, and anomaly detection in manufacturing plants. In many such cases it is infeasible to provide accurate sensor coverage of the entire environment, and thus an environment model and associated controller that accounts for sensor field-of-view (FoV) geometry is necessary to determine sensor configurations that minimize uncertainty.</div>
-        </div>
-      </div>
+    <% end %>
+
     </div>
   </div>
   <div class="block p4">
     <div class="title">
       <div class="text">LIDS News</div>
-      <div class="link"><a href="./xxx.html">See all LIDS News</a></div>
+      <div class="link"><%= link_to 'See all LIDS News', activities_url %></div>
     </div>
     <div class="content">
+    <% Activity.news.order(:start).limit(6).each do |activity| %>
       <div class="a">
         <div class="i">
-          <img src="http://project.isekai.me/ping/s1.jpeg" alt="">
+          <img src="<%= activity.logo_urls[0] || '' %>" alt="">
         </div>
         <div class="t">
-          <div class="tt">February 9, 2018</div>
-          <div class="ttt">Suvrit Sra joins MIT faculty, continues as Principal Investigator at LIDS</div>
+          <div class="tt"><%= activity.start&.strftime("%B %d, %Y") %></div>
+          <div class="ttt"><%= link_to activity.title, activity_url(activity) %></div>
         </div>
       </div>
-      <div class="a">
-        <div class="i">
-          <img src="http://project.isekai.me/ping/s1.jpeg" alt="">
-        </div>
-        <div class="t">
-          <div class="tt">February 9, 2018</div>
-          <div class="ttt">Suvrit Sra joins MIT faculty, continues as Principal Investigator at LIDS</div>
-        </div>
-      </div>
+    <% end %>
     </div>
   </div>
 </div>

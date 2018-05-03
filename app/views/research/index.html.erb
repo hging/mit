@@ -19,17 +19,19 @@
 <!-- content -->
 <div class="container with-catalog">
   <article>
-
+    <% @result.each do |article| %>
     <div class="event">
       <div class="image">
-        <img src="http://project.isekai.me/ping/s1.jpeg" alt="">
+        <img src="<%= article.logo_urls[0] %>" alt="">
       </div>
       <div class="info">
-        <div class="time">February 9, 2018</div>
-        <div class="desc">Operations Research Center Seminars: Combinatorial Optimization with a Probabilistic Objective</div>
-        <div>test</div>
+        <div class="time"><%= article.start&.strftime("%B %d, %Y") %></div>
+        <div class="desc"><%= link_to article.title, activity_url(article) %></div>
+        <div><%= (truncate(strip_tags(article.content), :length => 60, :omission => '...')).html_safe %></div>
       </div>
     </div>
+    <% end %>
+
 
     <!-- pagination -->
     <!-- pagination end -->

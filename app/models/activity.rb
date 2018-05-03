@@ -7,15 +7,17 @@
 #  title         :string(255)
 #  author        :string(255)
 #  published     :boolean
-#  start         :integer
-#  end           :integer
+#  start         :datetime
+#  end           :datetime
 #  activity_type :integer          default("activity")
 #  news_type     :string(255)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  logo          :json
 #
 
 class Activity < ApplicationRecord
+  mount_uploaders :logo, ActivityLogoUploader
 
   enum :activity_type => {
     :activity => 0,
