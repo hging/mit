@@ -55,6 +55,12 @@ RailsAdmin.config do |config|
     field :title
   end
 
+  config.model Staff do
+    field :email
+    field :password
+    field :password_confirmation
+  end
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
