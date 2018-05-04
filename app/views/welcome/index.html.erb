@@ -48,7 +48,7 @@
         </div>
         <div class="t">
           <div class="tt"><%= link_to activity.title, activity_url(activity) %></div>
-          <div class="ttt"><%= (truncate(strip_tags(article.content), :length => 300, :omission => '...')).html_safe %></div>
+          <div class="ttt"><%= (truncate(strip_tags(activity.content), :length => 300, :omission => '...')).html_safe %></div>
         </div>
       </div>
     <% end %>
