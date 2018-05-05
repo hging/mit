@@ -8,7 +8,7 @@
     <ul>
       <li class=<%= params[:controller] == 'welcome' ? 'active' : '' %>><%= link_to 'Home', root_url %></li>
       <li class=<%= params[:controller] == 'about' ? 'active' : '' %>><%= link_to 'About', about_index_url %></li>
-      <li class=<%= params[:controller] == 'research' ? 'active' : '' %>><%= link_to 'Research', research_index_url %></li>
+      <li class=<%= params[:controller] == 'research' ? 'active' : '' %>><%= link_to 'Research', control_research_index_url %></li>
       <!-- <li><a href="#">Labs and Groups</a></li> -->
       <li class=<%= params[:controller] == 'people' ? 'active' : '' %>><%= link_to 'People', people_url %></li>
       <li class=<%= params[:controller] == 'activities' ? 'active' : '' %>><%= link_to 'News & Events', activities_url %></li>

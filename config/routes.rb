@@ -5,11 +5,19 @@ Rails.application.routes.draw do
   resources :about, :only => %w(index) do
     collection do
       get 'history'
+      get 'directions'
+      get 'magazine'
     end
   end
   get :calendar, :to => 'calendar#index', :as => 'calendar_index'
 
-  get :research, :to => 'research#index', :as => 'research_index'
+  resources :research, :only => %w(index) do
+    collection do
+      get 'communications'
+      get 'control'
+      get 'inference'
+    end
+  end
 
   resources :activities, :only => %w(index show)
 

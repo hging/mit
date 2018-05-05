@@ -52,7 +52,7 @@ gem 'normalize-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'kaminari'
 
-
+gem 'spinying','~> 0.9'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

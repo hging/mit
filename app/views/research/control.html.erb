@@ -6,16 +6,16 @@
 <% end %>
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
-  <span><%= link_to 'Home', root_url %></span><span>About LIDS</span>
+  <span><%= link_to 'Home', root_url %></span><span>Systems, Networks, and Control
 </div>
 
 <!-- title -->
-<h1 class="container">About LIDS</h1>
+<h1 class="container">Systems, Networks, and Control</h1>
 
 <!-- content -->
 <div class="container with-catalog">
   <article>
-    <p>Informatization is an important develop direction of human society in the future. The most basic and urgent need of this society construction is the ubiquitous high-speed network access, IoE(Internet of Everything) and effective handling of network information. We will consider Network Science as the main develop direction of NICE (The Network science CentEr), deeply fusion with Communication, Computing and Control. We will also continuously research in the areas of transportation, memorization and massive information processing.</p>
+<!--     <p>Informatization is an important develop direction of human society in the future. The most basic and urgent need of this society construction is the ubiquitous high-speed network access, IoE(Internet of Everything) and effective handling of network information. We will consider Network Science as the main develop direction of NICE (The Network science CentEr), deeply fusion with Communication, Computing and Control. We will also continuously research in the areas of transportation, memorization and massive information processing.</p>
     <p>Considering the research capabilities we already have and the possible expansion in the future, we will focus on four key breakthroughs in the following four subareas of Network Science research:</p>
     <p>· Network communications: including network information theory, network coding theory, network optimization, network economics, wireless network, Internet of Things, data center network and cloud computing;</p>
     <p>· Network security: network security based on the theory of network information and quantum information;</p>
@@ -24,12 +24,8 @@
     <p>In order to achieve the above objectives, NICE plans to build the three experimental system platform in the following five years:</p>
     <p>- Massive MIMO communication signal processing platform </p>
     <p>- Heterogeneous network communication platform </p>
-    <p>- Data Center Network Experimental Platform</p>
+    <p>- Data Center Network Experimental Platform</p> -->
   </article>
 
-  <div class="catalog" style="height: 100%;">
-    <span><%= link_to 'History', history_about_index_url, :style => 'color: #a40008' %></span><br>
-    <span><%= link_to 'LIDS/All Magazine', magazine_about_index_url, :style => 'color: #a40008' %></span><br>
-    <span><%= link_to 'Directions to LIDS Labs', directions_about_index_url, :style => 'color: #a40008' %></span>
-  </div>
+  <%= render 'sidebar' %>
 </div>

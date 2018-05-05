@@ -19,6 +19,6 @@ class Person < ApplicationRecord
   before_save :set_first_word
 
   def set_first_word
-    self.first_word = self.name[0].downcase
+    self.first_word = Spinying.parse(:word => self.name)[0].downcase
   end
 end
