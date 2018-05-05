@@ -31,7 +31,7 @@
     <div class="thumbnail"><img src="<%= person.avatar.url %>" alt=""></div>
     <div class="name"><%= person.name %></div>
     <div class="position"><%= person.title %></div>
-    <div class="email"><%= person.email %></div>
+    <div class="email" style="word-wrap:break-word;"><%= person.email %></div>
   </div>
 
   <% if (index % 6 == 5) || (@people.count == index + 1) %>
