@@ -8,17 +8,17 @@
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
   <% if params[:q] %>
-    <span><%= link_to 'Home', root_url %></span><span><%= link_to 'People', people_url %></span><span><%= params[:q] %></span>
+    <span><%= link_to 'Home', root_url %></span><span><%= link_to 'FacultyPls', people_faculty_pls_url %></span><span><%= params[:q] %></span>
   <% else %>
-    <span><%= link_to 'Home', root_url %></span><span>People</span>
+    <span><%= link_to 'Home', root_url %></span><span>FacultyPls</span>
   <% end %>
 </div>
 
 <!-- title -->
-<h1 class="container">People</h1>
+<h1 class="container">FacultyPls / <%= link_to 'Engineers', people_engineers_url %> / <%= link_to 'Students', people_students_url %></h1>
 <div class="catalog container">
   <% @all_first_words.each do |word| %>
-    <%= link_to word.upcase, people_url({:q => word}), :class => "#{params[:q] == word ? 'active' : ''}" %>
+    <%= link_to word.upcase, people_faculty_pls_url({:q => word}), :class => "#{params[:q] == word ? 'active' : ''}" %>
   <% end %>
   <!-- <a class="active">A</a><a>B</a><a>C</a><a>D</a> -->
 </div>
@@ -39,4 +39,3 @@
   <% end %>
 
 <% end %>
-

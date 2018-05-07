@@ -1,0 +1,41 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag    'people', media: 'all' %>
+<% end %>
+<% content_for :js do %>
+  <%= javascript_include_tag 'people' %>
+<% end %>
+<!-- breadcrumb -->
+<!-- 记得这里是span不能换行 -->
+<div class="breadcrumb container">
+  <% if params[:q] %>
+    <span><%= link_to 'Home', root_url %></span><span><%= link_to 'Students', people_students_url %></span><span><%= params[:q] %></span>
+  <% else %>
+    <span><%= link_to 'Home', root_url %></span><span>Students</span>
+  <% end %>
+</div>
+
+<!-- title -->
+<h1 class="container">Student / <%= link_to 'Engineers', people_engineers_url %> / <%= link_to 'FacultyPls', people_faculty_pls_url %></h1>
+<div class="catalog container">
+  <% @all_first_words.each do |word| %>
+    <%= link_to word.upcase, people_students_url({:q => word}), :class => "#{params[:q] == word ? 'active' : ''}" %>
+  <% end %>
+  <!-- <a class="active">A</a><a>B</a><a>C</a><a>D</a> -->
+</div>
+<!-- 一排6个 -->
+<% @people.each_with_index do |person, index| %>
+  <% if index % 6 == 0 %>
+  <div class="people container">
+  <% end %>
+  <div class="person">
+    <div class="thumbnail"><img src="<%= person.avatar.url %>" alt=""></div>
+    <div class="name"><%= person.name %></div>
+    <div class="position"><%= person.title %></div>
+    <div class="email" style="word-wrap:break-word;"><%= person.email %></div>
+  </div>
+
+  <% if (index % 6 == 5) || (@people.count == index + 1) %>
+    </div>
+  <% end %>
+
+<% end %>
