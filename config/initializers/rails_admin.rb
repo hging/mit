@@ -53,6 +53,10 @@ RailsAdmin.config do |config|
     field :avatar
     field :email
     field :title
+    field :person_type
+    field :professional
+    field :research_area
+    field :faculty
   end
 
   config.model Staff do

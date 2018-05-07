@@ -15,7 +15,7 @@
 </div>
 <div class="block container p1">
   <div class="title">
-    <div class="text">Upcoming LIDS Events</div>
+    <div class="text">Upcoming NICE Events</div>
     <div class="link"><%= link_to 'See all Events', activities_url %></div>
   </div>
   <div class="content">
@@ -24,7 +24,7 @@
       <div class="t"><%= activity.start&.strftime("%^B") %></div>
       <div class="c"><b><%= activity.start&.strftime("%d") %></b><%= activity.start&.day&.ordinalize %></div>
       <div class="p">
-        <!-- <div>LIDS & Stats Tea</div> -->
+        <!-- <div>NICE & Stats Tea</div> -->
         <div><b><%= link_to activity.title, activity_url(activity) %></b></div>
         <div><%= (truncate(strip_tags(activity.content), :length => 60, :omission => '...')).html_safe %></div>
         <!-- <div>4:30pm</div> -->
@@ -37,8 +37,8 @@
 <div class="container p2">
   <div class="block p3">
     <div class="title">
-      <div class="text">LIDS Research Highlights</div>
-      <div class="link"><%= link_to 'See all LIDS Highlights', research_index_url %><a href="./xxx.html"></a></div>
+      <div class="text">NICE Research Highlights</div>
+      <div class="link"><%= link_to 'See all NICE Highlights', research_index_url %><a href="./xxx.html"></a></div>
     </div>
     <div class="content">
     <% Activity.activity.order(:start).limit(6).each do |activity| %>
@@ -57,8 +57,8 @@
   </div>
   <div class="block p4">
     <div class="title">
-      <div class="text">LIDS News</div>
-      <div class="link"><%= link_to 'See all LIDS News', activities_url %></div>
+      <div class="text">NICE News</div>
+      <div class="link"><%= link_to 'See all NICE News', activities_url %></div>
     </div>
     <div class="content">
     <% Activity.news.order(:start).limit(6).each do |activity| %>

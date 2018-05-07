@@ -4,15 +4,16 @@ Rails.application.routes.draw do
   root :controller => "welcome", :action => :index
   resources :about, :only => %w(index) do
     collection do
-      get 'history'
-      get 'directions'
-      get 'magazine'
+      get 'upcoming_events'
+      get 'nice_research'
+      get 'nice_news'
     end
   end
   get :calendar, :to => 'calendar#index', :as => 'calendar_index'
 
   resources :research, :only => %w(index) do
     collection do
+      get 'result'
       get 'fog'
       get 'cloud'
       get 'distributed'
@@ -24,18 +25,36 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :activities, :only => %w(index show)
+  # resources :activities, :only => %w(index show)
+  resources :events, :only => %w(index show)
 
   # get :people, :to => 'people#index'
-  namespace :people do
-    get :engineers
-    get :faculty_pls
-    get :students
+  resources :people, :only => %w(index) do
+    collection do
+      get :engineers
+      get :faculty_pls
+      get :students
+    end
   end
 
-  namespace :labs do
-    get :dial
-    get :data
+  resources :labs, :only => %w(index) do
+    collection do
+      get :dial
+      get :data
+    end
+  end
+
+  resources :resource, :only => %w(index) do
+    collection do
+      get :members
+      get :book
+      get :copy
+      get :publications
+      get :request_repairs
+      get :mail
+      get :travel_rule
+      get :subscribing
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

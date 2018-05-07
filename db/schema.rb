@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503141925) do
+ActiveRecord::Schema.define(version: 20180507171918) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(version: 20180503141925) do
     t.string "first_word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "professional"
+    t.string "research_area"
+    t.string "faculty"
+    t.integer "person_type"
     t.index ["first_word"], name: "index_people_on_first_word"
   end
 

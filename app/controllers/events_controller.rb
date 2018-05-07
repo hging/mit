@@ -1,4 +1,4 @@
-class ActivitiesController < ApplicationController
+class EventsController < ApplicationController
   def index
     @result = Activity.news.where(:published => true)
   end
