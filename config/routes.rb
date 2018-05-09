@@ -9,7 +9,6 @@ Rails.application.routes.draw do
       get 'nice_news'
     end
   end
-  get :calendar, :to => 'calendar#index', :as => 'calendar_index'
 
   resources :research, :only => %w(index) do
     collection do
@@ -26,7 +25,14 @@ Rails.application.routes.draw do
   end
 
   # resources :activities, :only => %w(index show)
-  resources :events, :only => %w(index show)
+  resources :events, :only => %w(index show) do
+    collection do
+      get 'calendar'
+      get 'nice_seminar_series'
+      get 'workshops'
+      get 'news'
+    end
+  end
 
   # get :people, :to => 'people#index'
   resources :people, :only => %w(index) do

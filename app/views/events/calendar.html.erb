@@ -13,7 +13,7 @@
     },
     eventSources: {
 
-    events: <%= @news.html_safe %>,
+    events: <%= @activities.html_safe %>,
     color: "#A40008"
     }
   });
@@ -21,8 +21,8 @@
 <% end %>
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
-  <span><%= link_to 'Home', root_url %></span><span>Calendar</span>
-</div>
+    <span><%= link_to 'Home', root_url %></span><span><%= link_to 'News & Events', events_url %></span><span>Event Calendar</span>
+  </div>
 
 
 <!-- title -->

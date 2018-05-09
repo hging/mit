@@ -21,6 +21,8 @@ class Activity < ApplicationRecord
 
   enum :activity_type => {
     :activity => 0,
-    :news => 1
+    :news => 1,
+    :nice_seminar_series => 2,
+    :workshops => 3
   }
 end
