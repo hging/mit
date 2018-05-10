@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root :controller => "welcome", :action => :index
   resources :about, :only => %w(index) do
     collection do
-      get 'upcoming_events'
+      get 'history'
       get 'nice_research'
       get 'nice_news'
     end
