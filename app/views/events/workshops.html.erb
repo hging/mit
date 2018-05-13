@@ -1,8 +1,8 @@
 <% content_for :css do %>
-  <%= stylesheet_link_tag    'activities', media: 'all' %>
+  <%= stylesheet_link_tag    'about', media: 'all' %>
 <% end %>
 <% content_for :js do %>
-  <%= javascript_include_tag 'activities' %>
+  <%= javascript_include_tag 'about' %>
 <% end %>
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
@@ -15,22 +15,12 @@
 <!-- content -->
 <div class="container with-catalog">
   <article>
-    <% @result.each do |article| %>
-    <div class="event">
-      <div class="image">
-        <img src="<%= article.logo_urls[0] %>" alt="">
-      </div>
-      <div class="info">
-        <div class="time"><%= article.start&.strftime("%B %d, %Y") %></div>
-        <div class="desc"><%= link_to article.title, event_url(article) %></div>
-        <div><%= (truncate(strip_tags(article.content), :length => 60, :omission => '...')).html_safe %></div>
-      </div>
-    </div>
-    <% end %>
+    <p>2018 ShanghaiTech Workshop on Information, Learning and Decision (SWILD 2018) will be held in Shanghai, on ShanghaiTech University campus, from June 30 to July 1, 2018.</p>
+    <%= image_tag 'workshops.png', :alt => '' %>
+    <p>The workshop provides an opportunity for both researchers and practitioners in decision-making systems, networking, information theory, signal processing, machine learning, artificial intelligence, optimization and statistics to present their results.</p>
+    <p>For more information, please clisk here: </p>
 
-
-    <!-- pagination -->
-    <!-- pagination end -->
+    <p><%= link_to 'http://sist-swild.shanghaitech.edu.cn/2018/', '', :style => 'text-decoration-line: underline' %></p>
 
   </article>
 
