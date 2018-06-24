@@ -1,14 +1,16 @@
 <header class="container">
-  <div class="logo">
+  <div class="logo" style="height:117px">
     <%= link_to root_url do %>
-      <%= image_tag 'logo.png', :alt => '上海科技大学' %>
+      <%= image_tag 'left-logo.png', :alt => '上海科技大学', :align => 'left' %>
+    <% end %>
+    <%= link_to root_url do %>
+      <%= image_tag 'right-logo.png', :alt => '上海科技大学', :align => 'right' %>
     <% end %>
   </div>
   <div class="menu">
     <ul>
       <li class=<%= params[:controller] == 'welcome' ? 'active' : '' %>><%= link_to 'Home', root_url %></li>
       <li class=<%= params[:controller] == 'about' ? 'active' : '' %>><%= link_to 'About', about_index_url %></li>
-      <li class=<%= params[:controller] == 'labs' ? 'active' : '' %>><%= link_to 'Labs and Groups', labs_url %></li>
       <li class=<%= params[:controller] == 'research' ? 'active' : '' %>><%= link_to 'Research', research_index_url %></li>
       <!-- <li><a href="#">Labs and Groups</a></li> -->
       <li class=<%= params[:controller] == 'people' ? 'active' : '' %>><%= link_to 'People', people_url %></li>

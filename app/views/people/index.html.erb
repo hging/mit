@@ -15,7 +15,6 @@
 </div>
 
 <!-- title -->
-<h1 class="container"><%= link_to 'All', people_url %> / <%= link_to 'Engineers', engineers_people_url %> / <%= link_to 'Students', students_people_url %> / <%= link_to 'FacultyPls', faculty_pls_people_url %></h1>
 <div class="catalog container">
   <% @all_first_words.each do |word| %>
     <%= link_to word.upcase, engineers_people_url({:q => word}), :class => "#{params[:q] == word ? 'active' : ''}" %>

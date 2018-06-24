@@ -19,7 +19,7 @@
     <div class="link"><%= link_to 'See all Events', events_url %></div>
   </div>
   <div class="content">
-  <% Activity.news.order(:start).limit(3).each do |activity| %>
+  <% Activity.news.active.order(:start).limit(3).each do |activity| %>
     <div class="d">
       <div class="t"><%= activity.start&.strftime("%^B") %></div>
       <div class="c"><b><%= activity.start&.strftime("%d") %></b><%= activity.start&.day&.ordinalize %></div>
@@ -41,7 +41,7 @@
       <div class="link"><%= link_to 'See all NICE Highlights', research_index_url %><a href="./xxx.html"></a></div>
     </div>
     <div class="content">
-    <% Activity.activity.order(:start).limit(6).each do |activity| %>
+    <% Activity.activity.active.order(:start).limit(6).each do |activity| %>
       <div class="a">
         <div class="i">
           <img src="<%= activity.logo_urls[0] || '' %>" alt="">
@@ -61,7 +61,7 @@
       <div class="link"><%= link_to 'See all NICE News', events_url %></div>
     </div>
     <div class="content">
-    <% Activity.news.order(:start).limit(6).each do |activity| %>
+    <% Activity.news.active.order(:start).limit(6).each do |activity| %>
       <div class="a">
         <div class="i">
           <img src="<%= activity.logo_urls[0] || '' %>" alt="">

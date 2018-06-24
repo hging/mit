@@ -18,7 +18,7 @@
 
 class Activity < ApplicationRecord
   mount_uploaders :logo, ActivityLogoUploader
-
+  scope :active, -> {where(:published => true)}
   enum :activity_type => {
     :activity => 0,
     :news => 1,
