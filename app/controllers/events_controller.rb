@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   def calendar
     activities = Activity.activity.active
 
-    @activities = activities&.map {|new| {:title => new.title, :start => new.start.strftime("%Y-%m-%d"), :end => new.end.strftime("%Y-%m-%d"), :url => event_url(new)}}.to_json
+    @activities = activities&.map {|new| {:title => new.title, :start => new.start&.strftime("%Y-%m-%d")||Time.now.strftime("%Y-%m-%d"), :end => new.end&.strftime("%Y-%m-%d")||Time.now.strftime("%Y-%m-%d"), :url => event_url(new)}}.to_json
   end
 
   def nice_seminar_series

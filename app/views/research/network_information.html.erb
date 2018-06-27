@@ -1,32 +1,0 @@
-<% content_for :css do %>
-<%= stylesheet_link_tag    'about', media: 'all' %>
-<% end %>
-<% content_for :js do %>
-<%= javascript_include_tag 'about' %>
-<% end %>
-<!-- 记得这里是span不能换行 -->
-<div class="breadcrumb container">
-  <span><%= link_to 'Home', root_url %></span><span><%= link_to 'Research', research_index_url %></span><span>Network information Theory
-  </div>
-
-  <!-- title -->
-  <h1 class="container">Network information Theory</h1>
-
-  <!-- content -->
-  <div class="container with-catalog">
-    <article>
-      <h3>Information Theory and Applications Group</h3>
-      <p>Our group mainly focuses on network information theory and its applications (say, in communication and machine learning).</p>
-      <p>I am especially interested in mathematical problems therein. </p>
-      <h3>Current Students</h3>
-      <p>· Xiaobing Zhang (2015--present)</p>
-      <p>· Hao Cheng (2016--present)</p>
-
-      <h3>Selected Publications</h3>
-      <p>· The capacity region of the two-receiver Gaussian vector broadcast channel with private and common messages  IEEE Trans. on Information Theory, 2014  Y. Geng and C. Nair</p>
-      <p>· An information inequality and evaluation of Marton's inner bound for binary input broadcast channels IEEE Trans. on Information Theory, 2013 Y. Geng, V. Jog, C. Nair and Z.V. Wang</p>
-
-    </article>
-
-    <%= render 'sidebar' %>
-  </div>

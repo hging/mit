@@ -16,7 +16,7 @@
 <div class="block container p1">
   <div class="title">
     <div class="text">Upcoming NICE Events</div>
-    <div class="link", style="color:#a40008;text-decoration: underline;"><%= link_to 'See all Events', events_url %></div>
+    <div class="link" style="color:#a40008;"><%= link_to 'See all Events', events_url, :style => "text-decoration: underline;"  %> ></div>
   </div>
   <div class="content">
   <% Activity.news.active.order(:start).limit(3).each do |activity| %>
@@ -38,7 +38,7 @@
   <div class="block p3">
     <div class="title">
       <div class="text">NICE Research Highlights</div>
-      <div class="link", style="color:#a40008;text-decoration: underline;"><%= link_to 'See all NICE Highlights', research_index_url %></div>
+      <div class="link" style="color:#a40008;"><%= link_to 'See all NICE Highlights', research_index_url, :style => "text-decoration: underline;" %> ></div>
     </div>
     <div class="content">
     <% Activity.activity.active.order(:start).limit(6).each do |activity| %>
@@ -58,7 +58,7 @@
   <div class="block p4">
     <div class="title">
       <div class="text">NICE News</div>
-      <div class="link", style="color:#a40008;text-decoration: underline;"><%= link_to 'See all NICE News', events_url %></div>
+      <div class="link" style="color:#a40008;"><%= link_to 'See all NICE News', events_url, :style => "text-decoration: underline;" %> ></div>
     </div>
     <div class="content">
     <% Activity.news.active.order(:start).limit(6).each do |activity| %>

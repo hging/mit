@@ -1,3 +1,50 @@
+<style>
+/*  .menu li:hover{
+    border-bottom: .04rem solid #fff;
+  }*/
+
+  .menu .submenu li {
+    float: none;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    width: 100%;
+  }
+
+  .menu .submenu li a {
+    white-space:nowrap;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .menu li {
+    position: relative;
+  }
+
+  .menu .submenu {
+    z-index:999;
+    display: none;
+    position: absolute;
+    padding: 0;
+    background-color: #a40008;
+    min-width: 100px;
+    text-align: center;
+    color: #fff;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+
+  .menu .submenu li:hover {
+    background-color: #CF3139;
+  }
+
+  .menu li:hover ul {
+    display: block;
+  }
+
+</style>
 <header class="container">
   <div class="logo" style="height:117px">
     <%= link_to root_url do %>
@@ -9,14 +56,47 @@
   </div>
   <div class="menu">
     <ul>
-      <li class=<%= params[:controller] == 'welcome' ? 'active' : '' %>><%= link_to 'Home', root_url %></li>
-      <li class=<%= params[:controller] == 'about' ? 'active' : '' %>><%= link_to 'About', about_index_url %></li>
-      <li class=<%= params[:controller] == 'research' ? 'active' : '' %>><%= link_to 'Research', research_index_url %></li>
-      <!-- <li><a href="#">Labs and Groups</a></li> -->
-      <li class=<%= params[:controller] == 'people' ? 'active' : '' %>><%= link_to 'People', people_url %></li>
-      <li class=<%= params[:controller] == 'events' ? 'active' : '' %>><%= link_to 'News & Events', events_url %></li>
-      <li class=<%= params[:controller] == 'resource' ? 'active' : '' %>><%= link_to 'Resources', resource_index_url %></li>
-      <!-- <li><a href="#">Resources</a></li> -->
+      <li class=<%= params[:controller] == 'welcome' ? 'active' : '' %>>
+        <%= link_to 'Home', root_url %>
+      </li>
+      <li class=<%= params[:controller] == 'research' ? 'active' : '' %>>
+        <%= link_to 'Research', research_index_url %>
+        <ul class="submenu">
+          <li><%= link_to 'Research Highlights', result_research_index_url %></li>
+          <li><%= link_to 'Research Archive', result_research_index_url %></li>
+          <li><%= link_to 'Event Calendar', events_url %></li>
+        </ul>
+      </li>
+      <li class=<%= params[:controller] == 'resource' ? 'active' : '' %>>
+        <%= link_to 'Resources', resource_index_url %>
+        <ul class="submenu">
+          <li><%= link_to 'Information for Visitors and New Members', members_resource_index_url %></li>
+          <li><%= link_to 'Book a Conference Room', book_resource_index_url %></li>
+          <li><%= link_to 'Copy/Fax/Print/Scan', copy_resource_index_url %></li>
+          <li><%= link_to 'Lids Theses& Publications', publications_resource_index_url %></li>
+          <li><%= link_to 'Request Repairs', request_repairs_resource_index_url %></li>
+          <li><%= link_to 'Ship & Receive Mail', mail_resource_index_url %></li>
+          <li><%= link_to 'Travel Rules and Reimbursements', travel_rule_resource_index_url %></li>
+          <li><%= link_to 'Subscribing to Calendar Feeds', subscribing_resource_index_url %></li>
+        </ul>
+      </li>
+      <!-- <li><a href="#">Labs and Groups</a>
+      </li> -->
+      <li class=<%= params[:controller] == 'events' ? 'active' : '' %>>
+        <%= link_to 'News & Events', events_url %>
+        <ul class="submenu">
+          <li><%= link_to 'Nice News', news_events_url %></li>
+          <li><%= link_to 'Event Calendar', calendar_events_url %></li>
+          <li><%= link_to 'NICE Seminar Series', nice_seminar_series_events_url %></li>
+          <li><%= link_to 'Conferences and Workshops', workshops_events_url %></li>
+        </ul>
+      </li>
+      <li class=<%= params[:controller] == 'people' ? 'active' : '' %>>
+        <%= link_to 'People', people_url %>
+      </li>
+      <li class=<%= params[:controller] == 'about' ? 'active' : '' %>>
+        <%= link_to 'About', about_index_url %>
+      </li>
     </ul>
   </div>
 </header>
