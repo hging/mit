@@ -16,7 +16,7 @@
 <div class="block container p1">
   <div class="title">
     <div class="text">Upcoming NICE Events</div>
-    <div class="link"><%= link_to 'See all Events', events_url %></div>
+    <div class="link", style="color:#a40008;text-decoration: underline;"><%= link_to 'See all Events', events_url %></div>
   </div>
   <div class="content">
   <% Activity.news.active.order(:start).limit(3).each do |activity| %>
@@ -38,7 +38,7 @@
   <div class="block p3">
     <div class="title">
       <div class="text">NICE Research Highlights</div>
-      <div class="link"><%= link_to 'See all NICE Highlights', research_index_url %><a href="./xxx.html"></a></div>
+      <div class="link", style="color:#a40008;text-decoration: underline;"><%= link_to 'See all NICE Highlights', research_index_url %></div>
     </div>
     <div class="content">
     <% Activity.activity.active.order(:start).limit(6).each do |activity| %>
@@ -47,7 +47,7 @@
           <img src="<%= activity.logo_urls[0] || '' %>" alt="">
         </div>
         <div class="t">
-          <div class="tt"><%= link_to activity.title, event_url(activity) %></div>
+          <div class="tt", style="color:#a40008"><%= link_to activity.title, event_url(activity) %></div>
           <div class="ttt"><%= (truncate(strip_tags(activity.content), :length => 300, :omission => '...')).html_safe %></div>
         </div>
       </div>
@@ -58,7 +58,7 @@
   <div class="block p4">
     <div class="title">
       <div class="text">NICE News</div>
-      <div class="link"><%= link_to 'See all NICE News', events_url %></div>
+      <div class="link", style="color:#a40008;text-decoration: underline;"><%= link_to 'See all NICE News', events_url %></div>
     </div>
     <div class="content">
     <% Activity.news.active.order(:start).limit(6).each do |activity| %>
@@ -68,7 +68,7 @@
         </div>
         <div class="t">
           <div class="tt"><%= activity.start&.strftime("%B %d, %Y") %></div>
-          <div class="ttt"><%= link_to activity.title, event_url(activity) %></div>
+          <div class="ttt", style="color:#a40008"><%= link_to activity.title, event_url(activity) %></div>
         </div>
       </div>
     <% end %>

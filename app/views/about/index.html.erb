@@ -4,6 +4,10 @@
 <% content_for :js do %>
   <%= javascript_include_tag 'about' %>
 <% end %>
+<div class="container">
+  <%= image_tag 'about-page.png', :align => 'left', :width => "100%", :style => "padding: 20px 0 20px 0" %>
+</div>
+
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
   <span><%= link_to 'Home', root_url %></span><span>About NICE</span>
