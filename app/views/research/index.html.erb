@@ -12,7 +12,7 @@
 <!-- title -->
 <div class="container with-catalog">
   <article>
-    <% Activity.research.each do |article| %>
+    <% Activity.research.active.each do |article| %>
     <div class="event">
       <div class="image">
         <img src="<%= article.logo_urls[0] %>" alt="">
