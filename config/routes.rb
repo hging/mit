@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   resources :research, :only => %w(index) do
     collection do
-      get 'result'
+      get 'highlight_result'
+      get 'archive_result'
       get 'fog'
       get 'cloud'
       get 'distributed'
@@ -52,14 +53,8 @@ Rails.application.routes.draw do
 
   resources :resource, :only => %w(index) do
     collection do
-      get :members
-      get :book
-      get :copy
-      get :publications
-      get :request_repairs
-      get :mail
-      get :travel_rule
-      get :subscribing
+      get :software
+      get :hardware
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

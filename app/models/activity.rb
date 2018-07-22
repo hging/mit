@@ -19,11 +19,15 @@
 class Activity < ApplicationRecord
   mount_uploaders :logo, ActivityLogoUploader
   scope :active, -> {where(:published => true)}
+  default_scope { order("id DESC") }
+
   enum :activity_type => {
     :activity => 0,
     :news => 1,
     :nice_seminar_series => 2,
     :workshops => 3,
-    :research => 4
+    :research => 4,
+    :highlights => 5,
+    :events => 6
   }
 end

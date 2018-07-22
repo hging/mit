@@ -12,22 +12,31 @@
 <!-- title -->
 <div class="container with-catalog">
   <article>
-    <% Activity.research.active.each do |article| %>
-    <div class="event">
-      <div class="image">
-        <img src="<%= article.logo_urls[0] %>" alt="">
-      </div>
-      <div class="info">
-        <div class="time"><%= article.start&.strftime("%B %d, %Y") %></div>
-        <div class="desc"><%= link_to article.title, event_url(article) %></div>
-        <div><%= (truncate(strip_tags(article.content), :length => 60, :omission => '...')).html_safe %></div>
-      </div>
-    </div>
-    <% end %>
+<p>NICE research, while grounded in certain established disciplines, is predominantly of a multidisciplinary nature. It also spans the full range from fundamental research and the development of new methodologies, to applications of major significance.</p>
+<h3>CORE DISCIPLINES:</h3>
+<p>Much of the research in NICE revolves around the core disciplines of:</p>
+<p>● Information Theory</p>
+<p>● Networking</p>
+<p>● Signal Processing</p>
+<p>● Optimization and Statistics</p>
+<p>More often than not, research activities involve a combination of these disciplines. NICE‘s research builds on the knowledge base of these disciplines.</p>
+ 
+<h3>UNDERLYING METHODOLOGIES:</h3>
+<p>NICE’s research relies on the analytical foundations provided by various mathematical disciplines, such as probability and statistics, dynamic systems, and optimization and decision theory. It also strives to advance these foundations along new directions, relevant to emerging engineering problems. </p>
+ 
+<h3>APPLICATION DOMAINS:</h3>
+<p>Research in NICE addresses and is driven by broad challenges, emerging applications, critical needs, and intellectual opportunities for technological advances. Active areas include:</p>
+<p>● Fog Computing</p>
+<p>● Cloud Computing</p>
+<p>● Distributed System</p>
+<p>● Converge of Communication, Computing and Control</p>
+<p>● Data-Driven Intelligent Network Design</p>
+<p>● Big-Data Analytics</p>
+<p>● Network Information Theory</p>
+<p>● Network Optimization</p>
+<p>● Network Control</p>
+<p>● Machine Learning and Statistics</p>
 
-
-    <!-- pagination -->
-    <!-- pagination end -->
 
   </article>
   <%= render 'sidebar' %>

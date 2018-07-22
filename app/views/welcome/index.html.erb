@@ -19,7 +19,7 @@
     <div class="link" style="color:#a40008;"><%= link_to 'See all Events', events_url, :style => "text-decoration: underline;"  %> ></div>
   </div>
   <div class="content">
-  <% Activity.news.active.order(:start).limit(3).each do |activity| %>
+  <% Activity.events.active.order(:start).limit(3).each do |activity| %>
     <div class="d">
       <div class="t"><%= activity.start&.strftime("%^B") %></div>
       <div class="c"><b><%= activity.start&.strftime("%d") %></b><%= activity.start&.day&.ordinalize %></div>
@@ -38,10 +38,10 @@
   <div class="block p3">
     <div class="title">
       <div class="text">NICE Research Highlights</div>
-      <div class="link" style="color:#a40008;"><%= link_to 'See all NICE Highlights', research_index_url, :style => "text-decoration: underline;" %> ></div>
+      <div class="link" style="color:#a40008;"><%= link_to 'See all NICE Highlights', highlight_result_research_index_url, :style => "text-decoration: underline;" %> ></div>
     </div>
     <div class="content">
-    <% Activity.activity.active.order(:start).limit(6).each do |activity| %>
+    <% Activity.highlights.active.order(:start).limit(6).each do |activity| %>
       <div class="a">
         <div class="i">
           <img src="<%= activity.logo_urls[0] || '' %>" alt="">
