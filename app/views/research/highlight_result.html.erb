@@ -7,9 +7,9 @@
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
   <% if params[:q] %>
-    <span><%= link_to 'Home', root_url %></span><span><%= link_to 'Research Highlight', result_research_index_url %></span><span><%= params[:q] %></span>
+    <span><%= link_to 'Home', root_url %></span><span><%= link_to 'Research', research_index_url %></span><span><%= link_to 'Research Highlight', result_research_index_url %></span><span><%= params[:q] %></span>
   <% else %>
-    <span><%= link_to 'Home', root_url %></span><span>Research Highlight</span>
+    <span><%= link_to 'Home', root_url %></span><span><%= link_to 'Research', research_index_url %></span><span>Research Highlight</span>
   <% end %>
 </div>
 
