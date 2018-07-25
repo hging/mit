@@ -28,6 +28,7 @@ class Activity < ApplicationRecord
     :workshops => 3,
     :research => 4,
     :highlights => 5,
-    :events => 6
+    :events => 6,
+    :archive => 7
   }
 end
