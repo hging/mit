@@ -1,12 +1,12 @@
 <% content_for :css do %>
-  <%= stylesheet_link_tag    'about', media: 'all' %>
+  <%= stylesheet_link_tag    'activities', media: 'all' %>
 <% end %>
 <% content_for :js do %>
-  <%= javascript_include_tag 'about' %>
+  <%= javascript_include_tag 'activities' %>
 <% end %>
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
-  <span><%= link_to 'Home', root_url %></span><span><%= link_to 'Resource', resource_index_url %></span><span>Software Information
+  <span><%= link_to 'Home', root_url %></span><span>Resource</span><span>Software Information
 </div>
 
 <!-- title -->
@@ -15,17 +15,25 @@
 <!-- content -->
 <div class="container with-catalog">
   <article>
-<!--     <p>Informatization is an important develop direction of human society in the future. The most basic and urgent need of this society construction is the ubiquitous high-speed network access, IoE(Internet of Everything) and effective handling of network information. We will consider Network Science as the main develop direction of NICE (The Network science CentEr), deeply fusion with Communication, Computing and Control. We will also continuously research in the areas of transportation, memorization and massive information processing.</p>
-    <p>Considering the research capabilities we already have and the possible expansion in the future, we will focus on four key breakthroughs in the following four subareas of Network Science research:</p>
-    <p>· Network communications: including network information theory, network coding theory, network optimization, network economics, wireless network, Internet of Things, data center network and cloud computing;</p>
-    <p>· Network security: network security based on the theory of network information and quantum information;</p>
-    <p>· Network storage: cloud storage , cache-centric information central network;</p>
-    <p>· Network information processing: signal (information) processing based on the pictures, social networking and massive information analysis.</p>
-    <p>In order to achieve the above objectives, NICE plans to build the three experimental system platform in the following five years:</p>
-    <p>- Massive MIMO communication signal processing platform </p>
-    <p>- Heterogeneous network communication platform </p>
-    <p>- Data Center Network Experimental Platform</p> -->
+    <% @result.each do |article| %>
+    <div class="event">
+      <div class="image">
+        <%= image_tag article.logo_urls[0] || 'default_logo.png' %>
+      </div>
+      <div class="info">
+        <div class="time"><%= article.start&.strftime("%B %d, %Y") %></div>
+        <div class="desc"><%= link_to article.title, event_url(article) %></div>
+        <div><%= (truncate(strip_tags(article.content), :length => 60, :omission => '...')).html_safe %></div>
+      </div>
+    </div>
+    <% end %>
+
+
+    <!-- pagination -->
+    <!-- pagination end -->
+
   </article>
 
   <%= render 'sidebar' %>
+  </div>
 </div>

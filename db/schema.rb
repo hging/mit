@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507171918) do
+ActiveRecord::Schema.define(version: 20180903161006) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 20180507171918) do
     t.datetime "updated_at", null: false
     t.json "logo"
     t.index ["activity_type"], name: "index_activities_on_activity_type"
+    t.index ["end"], name: "index_activities_on_end"
     t.index ["published"], name: "index_activities_on_published"
+    t.index ["start"], name: "index_activities_on_start"
   end
 
   create_table "ckeditor_assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

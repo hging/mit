@@ -30,6 +30,7 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
   config.model Activity do
+    parent '/'
     edit do
       # For RailsAdmin >= 0.5.0
       field :title
@@ -40,6 +41,10 @@ RailsAdmin.config do |config|
       field :end, :timestamp
       field :activity_type
       field :news_type
+      field :logo do
+        label 'Avatar'
+        help '会缩放为110*110的图片'
+      end
 
       # For RailsAdmin < 0.5.0
       # field :description do
@@ -47,7 +52,54 @@ RailsAdmin.config do |config|
       # end
     end
   end
+  config.model Hardware do
+    parent '/'
+    navigation_label 'Resource'
+    edit do
+      # For RailsAdmin >= 0.5.0
+      field :title
+      field :author
+      field :content, :ck_editor
+      field :published
+      field :start, :timestamp
+      field :end, :timestamp
+      field :activity_type
+      field :news_type
+      field :logo do
+        label 'Avatar'
+        help '会缩放为110*110的图片'
+      end
 
+      # For RailsAdmin < 0.5.0
+      # field :description do
+      #   ckeditor true
+      # end
+    end
+  end
+  config.model Software do
+    parent '/'
+    navigation_label 'Resource'
+    edit do
+      # For RailsAdmin >= 0.5.0
+      field :title
+      field :author
+      field :content, :ck_editor
+      field :published
+      field :start, :timestamp
+      field :end, :timestamp
+      field :activity_type
+      field :news_type
+      field :logo do
+        label 'Avatar'
+        help '会缩放为110*110的图片'
+      end
+
+      # For RailsAdmin < 0.5.0
+      # field :description do
+      #   ckeditor true
+      # end
+    end
+  end
   config.model Person do
     field :name
     field :avatar
@@ -63,6 +115,17 @@ RailsAdmin.config do |config|
     field :email
     field :password
     field :password_confirmation
+  end
+  config.model 'Ckeditor::Asset' do
+    visible false
+  end
+
+  config.model 'Ckeditor::AttachmentFile' do
+    visible false
+  end
+
+  config.model 'Ckeditor::Picture' do
+    visible false
   end
 
   config.actions do

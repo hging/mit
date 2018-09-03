@@ -18,7 +18,7 @@
     <% @result.each do |article| %>
     <div class="event">
       <div class="image">
-        <img src="<%= article.logo_urls[0] %>" alt="">
+        <%= image_tag article.logo_urls[0] || 'default_logo.png' %>
       </div>
       <div class="info">
         <div class="time"><%= article.start&.strftime("%B %d, %Y") %></div>

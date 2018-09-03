@@ -68,7 +68,7 @@
         </ul>
       </li>
       <li class=<%= params[:controller] == 'resource' ? 'active' : '' %>>
-        <%= link_to 'Resources', resource_index_url %>
+        <%= link_to 'Resources', hardware_resource_index_url %>
         <ul class="submenu">
           <li><%= link_to 'Software Information', software_resource_index_url %></li>
           <li><%= link_to 'Hardware Information', hardware_resource_index_url %></li>

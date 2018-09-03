@@ -1,12 +1,12 @@
 <% content_for :css do %>
-  <%= stylesheet_link_tag    'about', media: 'all' %>
+  <%= stylesheet_link_tag    'activities', media: 'all' %>
 <% end %>
 <% content_for :js do %>
-  <%= javascript_include_tag 'about' %>
+  <%= javascript_include_tag 'activities' %>
 <% end %>
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
-  <span><%= link_to 'Home', root_url %></span><span><%= link_to 'Resource', resource_index_url %></span><span>Hardware Information
+  <span><%= link_to 'Home', root_url %></span><span>Resource</span><span>Hardware Information
 </div>
 
 <!-- title -->
@@ -15,185 +15,25 @@
 <!-- content -->
 <div class="container with-catalog">
   <article>
-<td valign="top">
+    <% @result.each do |article| %>
+    <div class="event">
+      <div class="image">
+        <%= image_tag article.logo_urls[0] || 'default_logo.png' %>
+      </div>
+      <div class="info">
+        <div class="time"><%= article.start&.strftime("%B %d, %Y") %></div>
+        <div class="desc"><%= link_to article.title, event_url(article) %></div>
+        <div><%= (truncate(strip_tags(article.content), :length => 60, :omission => '...')).html_safe %></div>
+      </div>
+    </div>
+    <% end %>
 
 
+    <!-- pagination -->
+    <!-- pagination end -->
 
-<p><!--webbot bot="PurpleText"
-preview="目前，我中心拥有各种常用仪表如下：
-" --></p>
-
-
-<dl>
-
-    <dt><strong>信号发生器</strong></dt>
-    <dd> 
-  <p>　</p>
-    </dd>
-  <dd> 
-  <p><b>含Keysight 矢量信号发生器，任意波形发生器等。</b></p>
-  <ul>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod1-1.htm"><font color="#E44D03">N5183B MXG X 系列微波模拟信号发生器，9 kHz 至 40 GHz</font></a></p>
-    </li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod1-2.htm"><font color="#E44D03">N5182B MXG X 系列射频矢量信号发生器，9 kHz 至 6 GHz</font></a></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod1-3.htm"><font color="#E44D03">E8267D PSG 矢量信号发生器，100 kHz 至 44 GHz</font></a></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod1-4.htm"><font color="#E44D03">M8190A 12 GSa/s 任意波形发生器</font></a></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod1-5.htm"><font color="#E44D03">33612A 波形发生器，80 MHz，2 通道</font></a></p>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">　</p>
-    </li>
-  </ul>
-  <p>　</p>
-  <p></p>
-    </dd>
-
-
-    <dt><strong>信号分析仪 </strong></dt>
-    <dd> 
-  <p>　</p>
-    </dd>
-  <dd> 
-  <p><b>含Keysight ENA 系列网络分析仪等。</b></p>
-  <ul>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod2-1.htm"><font color="#E44D03">N9030A PXA 信号分析仪，3 Hz 至 50 GHz</font></a></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod2-2.htm"><font color="#E44D03">E5071C ENA 系列网络分析仪</font></a></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod2-3.htm"><font color="#E44D03">N6715B 基础型定制配置的直流电源分析仪，600 W，模块化，4 个插槽</font></a></p></li>
-  </ul>
-  <p>　</p>
-  <p></p>
-    </dd>
-
- 
-    <dt><strong>示波器 </strong></dt>
-    <dd> 
-  <p>　</p>
-    </dd>
-  <dd> 
-  <p><b>含Keysight等各型号示波器。</b></p>
-  <ul>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod3-1.htm"><font color="#E44D03">MSOX3024A 混合信号示波器：200 MHz，4 
-    个模拟通道和 16 个数字通道</font></a></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod3-2.htm"><font color="#E44D03">MSOS254A 高清晰度示波器：2.5 GHz，4 
-    个模拟通道和 16 个数字通道</font></a></p>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    　</p></li>
-  </ul>
-  <p>　</p>
-  <p></p>
-    </dd>
-
-
-    <dt><strong>万用表</font></strong> </dt>
-  <dd>　</dd>
-    <dd> 
-  <p><b>含数字万用表等。</b></p>
-  <ul>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod4-1.htm"><font color="#E44D03">34410A 6 1/2 位高性能数字万用表</font></a></p></li>
-  </ul>
-  <p>　</p>
-  <p></p>
-    </dd>
-
-
-    <dt><strong>电源及其他 </strong></dt>
-  <dd>　<p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-  <b>含各种电源及PXI总线、AXI总线的模块化仪表。</b></p>
-  <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-  　</p>
-  <ul>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod5-1.htm"><font color="#E44D03">E3642A 50W 电源，8V，5A 或 20V，2.5A</font></a></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod5-2.htm"><font color="#E44D03">85332B 固态开关，45 MHz 至 50 
-    GHz，SP4T</font></a></p>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">　</p></li>
-  </ul>
-  </dd>
-
-</dl>
-
-
-<dl>
-
-
-    <dt><strong>集群服务器</font></strong><strong> </strong></dt>
-
-</dl>
-<p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-<span lang="EN-US" style="font-size: 12.0pt; font-family: Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span><b>含服务器存储节点一个（SA5224L4）；服务器管理节点一个（5180M4）；服务器计算节点八个（NF5280M4）。</b></p>
-<dl>
-
-
-  <dd>　<ul>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod6-1.htm"><font color="#E44D03">浪潮天梭TS10000高性能服务器</font></a></p></li>
-  </ul>
-  </dd>
-
-</dl>
-
-
-<p>　</p>
-<dl>
-  <dt><strong>通用软件无线电硬件平台（USRP-RIO)</font></strong></dt>
-</dl>
-<p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-<span style="font-size: 12.0pt; font-family: Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<b>共计URRP-RIO 32套：每套USRP-RIO包含一个2953R，一个MXI接口卡和四根天线。</b></span></p>
-<dl>
-
-
-  <dd><ul>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod7-1.htm"><font color="#E44D03">USRP-RIO</font></a></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <span lang="EN-US" style="font-size: 12.0pt; font-family: Calibri,sans-serif">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod7-2.htm"><font color="#E44D03">PXIe-1071</font></a></span></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <span lang="EN-US" style="font-size: 12.0pt; font-family: Calibri,sans-serif">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod7-3.htm"><font color="#E44D03">PXIe-1082</font></a></span></p></li>
-    <li>
-    <p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">
-    <span lang="EN-US" style="font-size: 12.0pt; font-family: Calibri,sans-serif">
-    <a href="http://sist.shanghaitech.edu.cn/faculty/luoxl/NICE/Platform/prod7-4.htm"><font color="#E44D03">PXIe-8135</font></a></span></p></li>
-  </ul>
-  </dd>
-
-</dl>
-
-
-<p style="line-height: 150%; margin-top: 1px; margin-bottom: 1px">　</p>
-
-<!--msnavigation--></td>
   </article>
 
   <%= render 'sidebar' %>
+  </div>
 </div>

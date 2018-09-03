@@ -1,8 +1,8 @@
 <% content_for :css do %>
-  <%= stylesheet_link_tag    'people', media: 'all' %>
+  <%= stylesheet_link_tag    'activities', media: 'all' %>
 <% end %>
 <% content_for :js do %>
-  <%= javascript_include_tag 'people' %>
+  <%= javascript_include_tag 'activities' %>
 <% end %>
 <!-- breadcrumb -->
 <!-- 记得这里是span不能换行 -->
@@ -22,20 +22,24 @@
   <% end %>
   <!-- <a class="active">A</a><a>B</a><a>C</a><a>D</a> -->
 </div>
-<!-- 一排6个 -->
-<% @people.each_with_index do |person, index| %>
-  <% if index % 6 == 0 %>
-  <div class="people container">
-  <% end %>
-  <div class="person">
-    <div class="thumbnail"><img src="<%= person.avatar.url %>" alt=""></div>
-    <div class="name"><%= person.name %></div>
-    <div class="position"><%= person.title %></div>
-    <div class="email" style="word-wrap:break-word;"><%= person.email %></div>
-  </div>
-
-  <% if (index % 6 == 5) || (@people.count == index + 1) %>
+<div class="container with-catalog">
+  <article>
+    <% @people.each do |person| %>
+    <div class="event">
+      <div class="image">
+        <%= image_tag person.avatar.url || 'default_logo.png' %>
+      </div>
+      <div class="info">
+        <div class="time"><%= person.name %></div>
+        <div class="desc"><%= person.title %></div>
+        <div><%= person.email %></div>
+      </div>
     </div>
-  <% end %>
+    <% end %>
 
-<% end %>
+
+    <!-- pagination -->
+    <!-- pagination end -->
+
+  </article>
+</div>
