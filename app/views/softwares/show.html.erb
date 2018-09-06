@@ -1,0 +1,20 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag    'activities', media: 'all' %>
+<% end %>
+<% content_for :js do %>
+  <%= javascript_include_tag 'activities' %>
+<% end %>
+<!-- 记得这里是span不能换行 -->
+<div class="breadcrumb container">
+  <span><%= link_to 'Home', root_url %></span><span>Resource</span><span><%= link_to 'Software Information', software_resource_index_url %></span>
+</div>
+
+<!-- title -->
+<h1 class="container"><%= @result.title %></h1>
+
+<!-- content -->
+<div class="container">
+  <article>
+    <%= @result.content.html_safe %>
+  </article>
+</div>

@@ -6,7 +6,7 @@
 <% end %>
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
-  <span><%= link_to 'Home', root_url %></span><span>Resource</span><span>Hardware Information
+  <span><%= link_to 'Home', root_url %></span><span>Resource</span><span>Hardware Information</span>
 </div>
 
 <!-- title -->
@@ -22,7 +22,7 @@
       </div>
       <div class="info">
         <div class="time"><%= article.start&.strftime("%B %d, %Y") %></div>
-        <div class="desc"><%= link_to article.title, event_url(article) %></div>
+        <div class="desc"><%= link_to article.title, hardware_url(article) %></div>
         <div><%= (truncate(strip_tags(article.content), :length => 60, :omission => '...')).html_safe %></div>
       </div>
     </div>
