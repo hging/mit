@@ -14,11 +14,10 @@
   <% end %>
 </div>
 
-<h1 class="container"><%= link_to 'All', people_url %> / <%= link_to 'Engineers', engineers_people_url %> / <%= link_to 'Students', students_people_url %> / <%= link_to 'FacultyPls', faculty_pls_people_url %></h1>
 <div class="catalog container">
 
   <% @all_first_words.each do |word| %>
-  <%= link_to word.upcase, engineers_people_url({:q => word}), :class => "#{params[:q] == word ? 'active' : ''}" %>
+  <%= link_to word.upcase, people_url({:q => word}), :class => "#{params[:q] == word ? 'active' : ''}" %>
   <% end %>
 </div>
 <div class="container with-catalog">
@@ -29,9 +28,10 @@
         <%= image_tag person.avatar.url || 'default_logo.png' %>
       </div>
       <div class="info">
-        <div class="time"><%= person.name %></div>
+        <div class="time"><%= "#{person.name} <#{person.email}>" %></div>
         <div class="desc"><%= person.title %></div>
-        <div><%= person.email %></div>
+        <div><%= person.professional %></div>
+        <div><%= person.research_area %></div>
       </div>
     </div>
     <% end %>

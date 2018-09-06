@@ -12,6 +12,10 @@
 #  first_word        :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  professional      :string(255)
+#  research_area     :string(255)
+#  faculty           :string(255)
+#  person_type       :integer
 #
 
 require 'test_helper'

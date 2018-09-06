@@ -36,13 +36,7 @@ Rails.application.routes.draw do
   end
 
   # get :people, :to => 'people#index'
-  resources :people, :only => %w(index) do
-    collection do
-      get :engineers
-      get :faculty_pls
-      get :students
-    end
-  end
+  resources :people, :only => %w(index)
 
   resources :labs, :only => %w(index) do
     collection do
