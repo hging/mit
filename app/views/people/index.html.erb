@@ -31,7 +31,7 @@
         <div class="time"><%= "#{person.name} <#{person.email}>" %></div>
         <div class="desc"><%= person.title %></div>
         <div><%= person.professional %></div>
-        <div><%= person.research_area %></div>
+        <div><%= simple_format(person.research_area) %></div>
       </div>
     </div>
     <% end %>

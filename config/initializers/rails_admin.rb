@@ -34,13 +34,13 @@ RailsAdmin.config do |config|
     edit do
       # For RailsAdmin >= 0.5.0
       field :title
+      field :activity_type
+      field :news_type
       field :author
       field :content, :ck_editor
       field :published
       field :start, :timestamp
       field :end, :timestamp
-      field :activity_type
-      field :news_type
       field :logo do
         label 'Avatar'
         help '会缩放为110*110的图片'
@@ -58,13 +58,13 @@ RailsAdmin.config do |config|
     edit do
       # For RailsAdmin >= 0.5.0
       field :title
+      field :activity_type
+      field :news_type
       field :author
       field :content, :ck_editor
       field :published
       field :start, :timestamp
       field :end, :timestamp
-      field :activity_type
-      field :news_type
       field :logo do
         label 'Avatar'
         help '会缩放为110*110的图片'
@@ -82,13 +82,13 @@ RailsAdmin.config do |config|
     edit do
       # For RailsAdmin >= 0.5.0
       field :title
+      field :activity_type
+      field :news_type
       field :author
       field :content, :ck_editor
       field :published
       field :start, :timestamp
       field :end, :timestamp
-      field :activity_type
-      field :news_type
       field :logo do
         label 'Avatar'
         help '会缩放为110*110的图片'
@@ -107,7 +107,7 @@ RailsAdmin.config do |config|
     field :title
     field :person_type
     field :professional
-    field :research_area
+    field :research_area, :text
     field :faculty
   end
 
@@ -116,6 +116,14 @@ RailsAdmin.config do |config|
     field :password
     field :password_confirmation
   end
+  config.model About do
+    field :content, :text
+  end
+
+  config.model Home do
+    field :background
+  end
+
   config.model 'Ckeditor::Asset' do
     visible false
   end
@@ -131,13 +139,25 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
-    export
-    bulk_delete
-    show
+    new do
+      except [About, Home]
+    end
+    export do
+      except [About, Home]
+    end
+    bulk_delete do
+      except [About, Home]
+    end
+    show do
+      except [About, Home]
+    end
     edit
-    delete
-    show_in_app
+    delete do
+      except [About, Home]
+    end
+    show_in_app do
+      except [About, Home]
+    end
 
     ## With an audit adapter, you can add:
     # history_index

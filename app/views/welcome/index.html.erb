@@ -5,7 +5,7 @@
   <%= javascript_include_tag 'index' %>
 <% end %>
 <div class="banner container">
-  <%= image_tag 'banner.jpeg', :alt => '', :class => 'bg' %>
+  <img alt="" class="bg" src="<%= Home.last&.background.url %>">
   <div class="content">
     <div class="t">
       <div class="title">An Interdepartmental Research Center</div>
@@ -41,7 +41,7 @@
       <div class="link" style="color:#a40008;"><%= link_to 'See all NICE Highlights', highlight_result_research_index_url, :style => "text-decoration: underline;" %> ></div>
     </div>
     <div class="content">
-    <% Activity.highlights.active.order(:start).limit(6).each do |activity| %>
+    <% Activity.highlights.active.order(:start).limit(3).each do |activity| %>
       <div class="a">
         <div class="i">
           <img src="<%= activity.logo_urls[0] || '' %>" alt="">
@@ -61,7 +61,7 @@
       <div class="link" style="color:#a40008;"><%= link_to 'See all NICE News', events_url, :style => "text-decoration: underline;" %> ></div>
     </div>
     <div class="content">
-    <% Activity.news.active.order(:start).limit(6).each do |activity| %>
+    <% Activity.news.active.order(:start).limit(3).each do |activity| %>
       <div class="a">
         <div class="i">
           <img src="<%= activity.logo_urls[0] || '' %>" alt="">
