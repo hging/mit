@@ -124,6 +124,17 @@ RailsAdmin.config do |config|
     field :background
   end
 
+  config.model Menu do
+    field :title
+    field :body, :ck_editor
+  end
+
+  config.model SubMenu do
+    field :menu
+    field :title
+    field :body, :ck_editor
+  end
+
   config.model 'Ckeditor::Asset' do
     visible false
   end

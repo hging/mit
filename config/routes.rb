@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :menus, :only => %w(show)
+  resources :sub_menus, :only => %w(show)
   # resources :activities, :only => %w(index show)
   resources :events, :only => %w(index show) do
     collection do
