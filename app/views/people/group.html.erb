@@ -1,0 +1,23 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag    'about', media: 'all' %>
+<% end %>
+<% content_for :js do %>
+  <%= javascript_include_tag 'about' %>
+<% end %>
+
+<!-- 记得这里是span不能换行 -->
+<div class="breadcrumb container">
+  <span><%= link_to 'Home', root_url %></span><span><%= @person.name %></span><span>Group</span>
+</div>
+
+<!-- title -->
+<h1 class="container">Group</h1>
+
+<!-- content -->
+<div class="container">
+  <article>
+    <%= simple_format(@person.group) %>
+
+  </article>
+
+</div>

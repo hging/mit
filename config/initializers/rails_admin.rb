@@ -109,6 +109,10 @@ RailsAdmin.config do |config|
     field :professional
     field :research_area, :text
     field :faculty
+    field :group, :ck_editor
+    field :teaching, :ck_editor
+    field :publication, :ck_editor
+    field :research, :ck_editor
   end
 
   config.model Staff do

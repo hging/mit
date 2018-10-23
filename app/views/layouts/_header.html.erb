@@ -85,6 +85,39 @@
           <li><%= link_to 'Conferences and Workshops', workshops_events_url %></li>
         </ul>
       </li>
+      <li class=<%=  params[:action] == 'teaching' ? 'active' : '' %>>
+        <div style="color:#fff">Teaching</div>
+        <% if Person.all.count > 0 %>
+        <ul class="submenu">
+          <% Person.all.each do |person| %>
+            <li><%= link_to person.name, teaching_person_url(person) %></li>
+          <% end %>
+        </ul>
+        <% end %>
+      </li>
+
+      <li class=<%= params[:action] == 'publication' ? 'active' : '' %>>
+        <div style="color:#fff">Publication</div>
+        <% if Person.count > 0 %>
+        <ul class="submenu">
+          <% Person.all.each do |person| %>
+            <li><%= link_to person.name, publication_person_url(person) %></li>
+          <% end %>
+        </ul>
+        <% end %>
+      </li>
+
+      <li class=<%= params[:controller] == 'people' or params[:action] == 'group' ? 'active' : '' %>>
+        <%= link_to 'People', people_url %>
+        <% if Person.count > 0 %>
+        <ul class="submenu">
+          <% Person.all.each do |person| %>
+            <li><%= link_to person.name, group_person_url(person) %></li>
+          <% end %>
+        </ul>
+        <% end %>
+      </li>
+
       <% Menu.all.each do |menu| %>
         <li class=<%= (@menu&.id == menu.id || @sub_menu&.menu_id == menu.id ) ? 'active' : '' %>>
         <%= link_to menu.title, menu_url(menu) %>
@@ -97,9 +130,6 @@
         <% end %>
       </li>
       <% end %>
-      <li class=<%= params[:controller] == 'people' ? 'active' : '' %>>
-        <%= link_to 'People', people_url %>
-      </li>
       <li class=<%= params[:controller] == 'about' ? 'active' : '' %>>
         <%= link_to 'About', about_index_url %>
       </li>
