@@ -7,7 +7,7 @@
 
 <!-- 记得这里是span不能换行 -->
 <div class="breadcrumb container">
-  <span><%= link_to 'Home', root_url %></span><span><%= @person.name %></span><span>Research</span>
+    <span><%= link_to 'Home', root_url %></span><span><%= link_to 'Research', research_index_url %></span><span><%= link_to 'Research Archive', archive_result_research_index_url %></span><span><%= @person.name %></span>
 </div>
 
 <!-- title -->
