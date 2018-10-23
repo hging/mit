@@ -60,7 +60,7 @@
       <li class=<%= params[:controller] == 'welcome' ? 'active' : '' %>>
         <%= link_to 'Home', root_url %>
       </li>
-      <li class=<%= params[:controller] == 'research' ? 'active' : '' %>>
+      <li class=<%= params[:controller] == 'research' || params[:action] == 'research' ? 'active' : '' %>>
         <%= link_to 'Research', research_index_url %>
         <ul class="submenu">
           <li><%= link_to 'Research Highlights', highlight_result_research_index_url %></li>
