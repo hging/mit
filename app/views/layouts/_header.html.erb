@@ -60,12 +60,46 @@
       <li class=<%= params[:controller] == 'welcome' ? 'active' : '' %>>
         <%= link_to 'Home', root_url %>
       </li>
+
+      <li class=<%= params[:controller] == 'people' or params[:action] == 'group' ? 'active' : '' %>>
+        <%= link_to 'People', people_url %>
+        <% if Person.count > 0 %>
+        <ul class="submenu">
+          <% Person.all.each do |person| %>
+            <li><%= link_to person.name, group_person_url(person) %></li>
+          <% end %>
+        </ul>
+        <% end %>
+      </li>
+
       <li class=<%= params[:controller] == 'research' || params[:action] == 'research' ? 'active' : '' %>>
         <%= link_to 'Research', research_index_url %>
         <ul class="submenu">
           <li><%= link_to 'Research Highlights', highlight_result_research_index_url %></li>
           <li><%= link_to 'Research Archive', archive_result_research_index_url %></li>
         </ul>
+      </li>
+      <li class=<%=  params[:action] == 'teaching' ? 'active' : '' %>>
+        <div style="color:#fff">Teaching</div>
+        <% if Person.all.count > 0 %>
+        <ul class="submenu">
+          <% Person.all.each do |person| %>
+            <li><%= link_to person.name, teaching_person_url(person) %></li>
+          <% end %>
+        </ul>
+        <% end %>
+      </li>
+      
+
+      <li class=<%= params[:action] == 'publication' ? 'active' : '' %>>
+        <div style="color:#fff">Publication</div>
+        <% if Person.count > 0 %>
+        <ul class="submenu">
+          <% Person.all.each do |person| %>
+            <li><%= link_to person.name, publication_person_url(person) %></li>
+          <% end %>
+        </ul>
+        <% end %>
       </li>
       <li class=<%= params[:controller] == 'resource' ? 'active' : '' %>>
         <%= link_to 'Resources', hardware_resource_index_url %>
@@ -85,38 +119,7 @@
           <li><%= link_to 'Conferences and Workshops', workshops_events_url %></li>
         </ul>
       </li>
-      <li class=<%=  params[:action] == 'teaching' ? 'active' : '' %>>
-        <div style="color:#fff">Teaching</div>
-        <% if Person.all.count > 0 %>
-        <ul class="submenu">
-          <% Person.all.each do |person| %>
-            <li><%= link_to person.name, teaching_person_url(person) %></li>
-          <% end %>
-        </ul>
-        <% end %>
-      </li>
 
-      <li class=<%= params[:action] == 'publication' ? 'active' : '' %>>
-        <div style="color:#fff">Publication</div>
-        <% if Person.count > 0 %>
-        <ul class="submenu">
-          <% Person.all.each do |person| %>
-            <li><%= link_to person.name, publication_person_url(person) %></li>
-          <% end %>
-        </ul>
-        <% end %>
-      </li>
-
-      <li class=<%= params[:controller] == 'people' or params[:action] == 'group' ? 'active' : '' %>>
-        <%= link_to 'People', people_url %>
-        <% if Person.count > 0 %>
-        <ul class="submenu">
-          <% Person.all.each do |person| %>
-            <li><%= link_to person.name, group_person_url(person) %></li>
-          <% end %>
-        </ul>
-        <% end %>
-      </li>
 
       <% Menu.all.each do |menu| %>
         <li class=<%= (@menu&.id == menu.id || @sub_menu&.menu_id == menu.id ) ? 'active' : '' %>>

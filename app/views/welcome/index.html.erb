@@ -44,7 +44,7 @@
     <% Activity.highlights.active.order(:start).limit(3).each do |activity| %>
       <div class="a">
         <div class="i">
-          <img src="<%= activity.logo_urls[0] || '' %>" alt="">
+          <img src="<%= activity.logo_url || '' %>" alt="">
         </div>
         <div class="t">
           <div class="tt", style="color:#a40008"><%= link_to activity.title, event_url(activity) %></div>
@@ -64,7 +64,7 @@
     <% Activity.news.active.order(:start).limit(3).each do |activity| %>
       <div class="a">
         <div class="i">
-          <img src="<%= activity.logo_urls[0] || '' %>" alt="">
+          <img src="<%= activity.logo_url || '' %>" alt="">
         </div>
         <div class="t">
           <div class="tt"><%= activity.start&.strftime("%B %d, %Y") %></div>

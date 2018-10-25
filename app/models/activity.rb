@@ -17,7 +17,7 @@
 #
 
 class Activity < ApplicationRecord
-  mount_uploaders :logo, ActivityLogoUploader
+  mount_uploader :logo, ActivityLogoUploader
   scope :active, -> {where(:published => true)}
   default_scope { where(:activity_type => 0..7).order("start DESC") }
 
