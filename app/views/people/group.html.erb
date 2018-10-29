@@ -16,7 +16,7 @@
 <!-- content -->
 <div class="container">
   <article>
-    <%= simple_format(@person.group) %>
+    <%= @person.group.html_safe %>
 
   </article>
 

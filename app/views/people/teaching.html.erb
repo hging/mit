@@ -16,7 +16,7 @@
 <!-- content -->
 <div class="container">
   <article>
-    <%= simple_format(@person.teaching) %>
+    <%= @person.teaching.html_safe %>
   </article>
 
 </div>

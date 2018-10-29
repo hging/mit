@@ -19,7 +19,7 @@
 <!-- content -->
 <div class="container">
   <article>
-    <%= simple_format(About.instance.content) %>
+    <%= About.instance.content.html_safe %>
 
   </article>
 

@@ -21,7 +21,7 @@
         <div class="time"><%= link_to "#{person.name} <#{person.email}>", research_person_url(person) %></div>
         <div class="desc"><%= person.title %></div>
         <div><%= person.professional %></div>
-        <div><%= simple_format(person.research_area) %></div>
+        <div><%= person.research_area.html_safe %></div>
       </div>
     </div>
     <% end %>
