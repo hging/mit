@@ -121,7 +121,7 @@ RailsAdmin.config do |config|
     field :password_confirmation
   end
   config.model About do
-    field :content, :text
+    field :content, :ck_editor
   end
 
   config.model Home do
