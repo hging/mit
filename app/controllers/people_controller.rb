@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :set_person, :expect => [:index]
+  before_action :set_person, :except => [:index]
 
   def index
     per = params[:per] || 18
