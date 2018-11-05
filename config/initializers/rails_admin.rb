@@ -131,6 +131,7 @@ RailsAdmin.config do |config|
   config.model Menu do
     field :title
     field :body, :ck_editor
+    field :zindex
   end
 
   config.model SubMenu do
