@@ -131,7 +131,9 @@ RailsAdmin.config do |config|
   config.model Menu do
     field :title
     field :body, :ck_editor
-    field :zindex
+    field :zindex do
+      help '菜单排序，数字越大，越靠前'
+    end
   end
 
   config.model SubMenu do
