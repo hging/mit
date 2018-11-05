@@ -22,7 +22,7 @@
   <% Activity.events.active.order(:start).limit(3).each do |activity| %>
     <div class="d">
       <div class="t"><%= activity.start&.strftime("%^B") %></div>
-      <div class="c"><b><%= activity.start&.strftime("%d") %></b><%= activity.start&.day&.ordinalize %></div>
+      <div class="c"><b><%= activity.start&.strftime("%d") %></b><%= activity.start&.day&.ordinal %></div>
       <div class="p">
         <!-- <div>NICE & Stats Tea</div> -->
         <div><b><%= link_to activity.title, event_url(activity) %></b></div>
