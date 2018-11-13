@@ -125,7 +125,12 @@ RailsAdmin.config do |config|
   end
 
   config.model Home do
-    field :background
+    field :background do
+      help '建议尺寸：1200*440'
+    end
+    field :link do
+      help '例子：http://baidu.com 或者 https://baidu.com'
+    end
   end
 
   config.model Menu do
@@ -158,23 +163,23 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new do
-      except [About, Home]
+      except [About]
     end
     export do
-      except [About, Home]
+      except [About]
     end
     bulk_delete do
-      except [About, Home]
+      except [About]
     end
     show do
-      except [About, Home]
+      except [About]
     end
     edit
     delete do
-      except [About, Home]
+      except [About]
     end
     show_in_app do
-      except [About, Home]
+      except [About]
     end
 
     ## With an audit adapter, you can add:

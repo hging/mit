@@ -3,15 +3,39 @@
 <% end %>
 <% content_for :js do %>
   <%= javascript_include_tag 'index' %>
+  <script>
+    var i = 1;
+    function autoChangeImage(i){
+      setTimeout("changeImage(i++); ", 3500);
+      // setTimeout("back(i); ", 1000);
+      setTimeout("autoChangeImage(i = (i%<%= Home.count %>)); ", 3500);
+      console.log(i)
+    }
+    function changeImage(idNum){
+      switch(idNum){
+        <% Home.all.each.with_index do |banner, index| %>
+          case <%= index %>:
+            var image = $("#imgIndex");
+            image.fadeOut('fast', function () {
+                image.attr('src', "<%= banner.background.url %>");
+                image.fadeIn('fast');
+            });
+            $("#linkIndex").attr('href', "<%= banner.link %>")
+            // document.getElementById("imgIndex").style.backgroundImage = "url(<%= banner.background.url %>)";//改变首页图片
+            break;
+        <% end %>
+      }
+    }
+    $(document).ready(function () {
+      changeImage(0);
+      autoChangeImage(0);
+    })
+  </script>
 <% end %>
 <div class="banner container">
-  <img alt="" class="bg" src="<%= Home.last&.background.url %>">
-  <div class="content">
-    <div class="t">
-      <div class="title">An Interdepartmental Research Center</div>
-      <div class="subtitle">Committed to Advancing the Analytical Information and Decision Sciences.</div>
-    </div>
-  </div>
+  <a id="linkIndex">
+    <img alt="" class="bg" id="imgIndex">
+  </a>
 </div>
 <div class="block container p1">
   <div class="title">
