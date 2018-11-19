@@ -28,10 +28,11 @@
         <%= image_tag person.avatar.url || 'default_logo.png' %>
       </div>
       <div class="info">
-        <div class="time"><%= "#{person.name} <#{person.email}>" %></div>
+        <div class="time"><%= "#{person.name} <#{person.email}>" %> </div>
         <div class="desc"><%= person.title %></div>
         <div><%= person.professional %></div>
         <div><%= person.research_area.html_safe %></div>
+        <div><%= link_to '个人网站', person.link, class: 'desc', style: "font-size:0.13rem" if person.link.present? %></div>
       </div>
     </div>
     <% end %>

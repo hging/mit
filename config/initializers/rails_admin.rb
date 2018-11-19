@@ -104,6 +104,7 @@ RailsAdmin.config do |config|
     field :name
     field :avatar
     field :email
+    field :link
     field :title
     field :person_type
     field :professional

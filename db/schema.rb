@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181113154700) do
+ActiveRecord::Schema.define(version: 20181119165350) do
 
   create_table "abouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", limit: 4294967295
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20181113154700) do
     t.text "teaching", limit: 4294967295
     t.text "research", limit: 4294967295
     t.text "publication", limit: 4294967295
+    t.string "link"
     t.index ["first_word"], name: "index_people_on_first_word"
   end
 
