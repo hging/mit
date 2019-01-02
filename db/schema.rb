@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181119165350) do
+ActiveRecord::Schema.define(version: 20190102153517) do
 
   create_table "abouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", limit: 4294967295
@@ -85,7 +85,9 @@ ActiveRecord::Schema.define(version: 20181119165350) do
     t.text "research", limit: 4294967295
     t.text "publication", limit: 4294967295
     t.string "link"
+    t.integer "zindex", default: 0
     t.index ["first_word"], name: "index_people_on_first_word"
+    t.index ["zindex"], name: "index_people_on_zindex"
   end
 
   create_table "staffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

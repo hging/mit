@@ -103,6 +103,9 @@ RailsAdmin.config do |config|
   config.model Person do
     field :name
     field :avatar
+    field :zindex do
+      help '排序，数字越大，越靠前'
+    end
     field :email
     field :link
     field :title

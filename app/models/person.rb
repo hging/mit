@@ -21,6 +21,7 @@
 class Person < ApplicationRecord
   mount_uploader :avatar, PeopleAvatarUploader, mount_on: :avatar
   before_save :set_first_word
+  default_scope {order(:zindex => :desc)}
 
   enum :person_type => {
     :engineers => 1,
